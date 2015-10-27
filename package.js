@@ -1,13 +1,7 @@
 Package.describe({
   summary: "Extended API for Session and Collection.",
-
-  // update this value before you run 'meteor publish'
-  version: "2.0.3",
-
-  // if this value isn't set, meteor will default to the directory name
+  version: "2.0.4",
   name: "clinical:extended-api",
-
-  // and add this value if you want people to access your code from Atmosphere
   git: "https://github.com/clinical-meteor/clinical-extended-api"
 });
 

@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Extended API for Session and Collection.",
-  version: "2.0.5",
+  version: "2.1.0",
   name: "clinical:extended-api",
   git: "https://github.com/clinical-meteor/clinical-extended-api"
 });
@@ -20,13 +20,19 @@ Package.on_use(function (api) {
   api.use('reactive-dict@1.1.0', 'client');
   api.use('ejson@1.0.6', 'client');
 
-  //api.addFiles('lib/string-extended-api.js', 'client');
+  //client
   api.addFiles('client/session-extended-api.js', 'client');
+
+  //both
+  api.addFiles('lib/Style.js');
+
+  //server
   api.addFiles('server/collection-extended-api.js', 'server');
 
+  //exports
   api.export('Session', 'client');
   api.export('Collection');
-  //api.export('String');
+  api.export('Style');
 
 });
 

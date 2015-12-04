@@ -1,4 +1,16 @@
-Session.toggle = function (session_variable) {
+/**
+ * @summary Toggles a boolean session variable true/false.
+ * @locus Client
+ * @memberOf Session
+ * @name toggle
+ * @version 1.2.3
+ * @example
+ * ```js
+ *   Session.toggle('isSidebarVisible');
+ * ```
+ */
+
+ Session.toggle = function (session_variable) {
   if (Session.get(session_variable) === undefined) {
     Session.set(session_variable, undefined);
   } else if (Session.get(session_variable) === null) {
@@ -10,6 +22,19 @@ Session.toggle = function (session_variable) {
   }
   return true;
 };
+
+/**
+ * @summary Clears a session variable.
+ * @locus Client
+ * @memberOf Session
+ * @name clear
+ * @version 1.2.3
+ * @example
+ * ```js
+ *   Session.clear('activePatient');
+ * ```
+ */
+
 Session.clear = function (session_variable) {
   Session.set(session_variable, null);
   return true;

@@ -27,6 +27,21 @@ describe('clinical:extended-api', function () {
       expect(String).to.exist;
     });
   });
+  it('String can convert a string to snake_case.', function () {
+    return client.execute(function () {
+      expect(Session).to.exist;
+    });
+  });
+  it('String can convert a string to Proper Case.', function () {
+    return client.execute(function () {
+      expect(Session).to.exist;
+    });
+  });
+  it('String can convert a string to a slug.', function () {
+    return client.execute(function () {
+      expect(Session).to.exist;
+    });
+  });
 
 
   it('Style should exist on the client', function () {
@@ -40,6 +55,18 @@ describe('clinical:extended-api', function () {
       expect(Style).to.exist;
     });
   });
+  it('Style should convert a JSS object into a string.', function () {
+    return client.execute(function () {
+      expect(Style).to.exist;
+      var styleString = Style.parse({
+        width: "80%",
+        left: "20%",
+        visibility: "visible"
+      });
+      expect(styleString).to.equal("width:80%;left:20%;visibility:visible;");
+    });
+  });
+
 
 
   it('Session should exist on the client', function () {
@@ -53,4 +80,51 @@ describe('clinical:extended-api', function () {
       expect(typeof Session).to.equal("undefined");
     });
   });
+  it('Session can be toggled true/false', function () {
+    return client.execute(function () {
+      expect(Session).to.exist;
+      Session.set('foo', false);
+      expect(Session.get('foo')).to.be.false;
+      Session.toggle('foo');
+      expect(Session.get('foo')).to.be.true;
+    });
+  });
+
+
+
+  //==================
+  // Users Check
+  it("Mongo.Collection.drop() - Collections can remove all items.", function () {
+    server.execute(function () {
+      Meteor.call('initializeUsers');
+      expect(Meteor.users.find().count()).to.equal(8);
+
+      Meteor.users.drop();
+      expect(Meteor.users.find().count()).to.equal(0);
+    });
+  });
+
+
+
+  it("Mongo.Collection.init() - Collections can be initialized if there are no records.", function () {
+    return server.execute(function () {
+
+      Meteor.users.onInitialization(function(){
+        Accounts.createUser({
+          username: 'chase',
+          password: 'chase',
+          email: 'chase@test.org',
+          profile: {
+            fullName: 'Robert Chase',
+            role: 'Physician',
+            avatar: '/packages/clinical_accounts-housemd/housemd/robert.chase.jpg'
+          }
+        });
+      });
+      Meteor.users.init();
+      expect(Meteor.users.find().count()).to.equal(1);
+    });
+  });
+
+
 });

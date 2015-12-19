@@ -19,3 +19,13 @@ Mongo.Collection.prototype.drop = function (){
   var self = this;
   self._collection.remove({});
 };
+
+
+
+Mongo.Collection.prototype.onInitialization = function (callback){
+  Mongo.Collection.prototype._initCommand = callback;
+};
+Mongo.Collection.prototype.init = function (){
+  return Mongo.Collection.prototype._initCommand();
+};
+Mongo.Collection.prototype._initCommand;

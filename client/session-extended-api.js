@@ -10,7 +10,7 @@
  * ```
  */
 
- Session.toggle = function (session_variable) {
+Session.toggle = function (session_variable) {
   if (Session.get(session_variable) === undefined) {
     Session.set(session_variable, undefined);
   } else if (Session.get(session_variable) === null) {

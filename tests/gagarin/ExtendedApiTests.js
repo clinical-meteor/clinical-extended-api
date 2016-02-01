@@ -111,13 +111,13 @@ describe('clinical:extended-api', function () {
 
       Meteor.users.onInitialization(function(){
         Accounts.createUser({
-          username: 'chase',
-          password: 'chase',
-          email: 'chase@test.org',
+          username: 'daria',
+          password: 'daria',
+          email: 'daria@test.org',
           profile: {
-            fullName: 'Robert Chase',
-            role: 'Physician',
-            avatar: '/packages/clinical_accounts-housemd/housemd/robert.chase.jpg'
+            fullName: 'Daria Morgendorffer',
+            role: 'Patient',
+            avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Daria_Logo.svg/1032px-Daria_Logo.svg.png'
           }
         });
       });

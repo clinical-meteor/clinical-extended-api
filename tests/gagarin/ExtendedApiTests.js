@@ -3,19 +3,6 @@ describe('clinical:extended-api', function () {
   var server = meteor();
   var client = browser(server);
 
-  beforeEach(function () {
-    server.execute(function () {
-
-    }).then(function (value){
-
-    });
-  });
-  afterEach(function () {
-    server.execute(function () {
-
-    });
-  });
-
   it('String should exist on the client', function () {
     return client.execute(function () {
       expect(String).to.exist;
@@ -108,7 +95,10 @@ describe('clinical:extended-api', function () {
 
   it("Mongo.Collection.init() - Collections can be initialized if there are no records.", function () {
     return server.execute(function () {
+      // make sure gagarin doesn't auto-initialize users by accident
+      Meteor.users.drop();
 
+      // register our initialization function
       Meteor.users.onInitialization(function(){
         Accounts.createUser({
           username: 'daria',
@@ -121,7 +111,11 @@ describe('clinical:extended-api', function () {
           }
         });
       });
+
+      // initialize the collection
       Meteor.users.init();
+
+      // verification test
       expect(Meteor.users.find().count()).to.equal(1);
     });
   });

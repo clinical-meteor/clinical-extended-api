@@ -114,13 +114,19 @@ describe('clinical:extended-api', function () {
           amount: '0.5',
           unit: 'cup'
         });
+        Vegetables.insert({
+          name: 'Sourkraut',
+          carbs: '2.1',
+          amount: '0.5',
+          unit: 'cup'
+        });
       });
 
       // initialize the collection
       Vegetables.init();
 
       // verification test
-      expect(Vegetables.find().count()).to.equal(1);
+      expect(Vegetables.find().count()).to.equal(3);
     });
   });
 

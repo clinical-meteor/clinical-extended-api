@@ -51,6 +51,6 @@ Package.on_test(function (api) {
   api.use('clinical:extended-api');
   api.use('clinical:verification');
 
-  api.addFiles('tests/session-extended-api-tests.js', 'client');
-  api.addFiles('tests/collection-extended-api-tests.js');
+  api.addFiles('tests/mocha/session-extended-api-tests.js', 'client');
+  api.addFiles('tests/mocha/collection-extended-api-tests.js');
 });

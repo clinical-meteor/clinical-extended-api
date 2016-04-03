@@ -36,7 +36,7 @@ dependencies:
     - cd helloworld
     - cd helloworld && ls -la
     - cd helloworld && rm helloworld.*
-    - cd helloworld && meteor add anti:gagarin@0.4.11 session meteor-platform clinical:router clinical:router-default-config
+    - cd helloworld && meteor add anti:gagarin@0.4.11 session meteor-platform clinical:router clinical:router-default-config 
     - cd helloworld && git clone http://github.com/clinical-meteor/extended-api packages/extended-api
     - cd helloworld && meteor add clinical:extended-api
     - cd helloworld && starrynight autoconfig

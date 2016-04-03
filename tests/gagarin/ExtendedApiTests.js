@@ -95,28 +95,32 @@ describe('clinical:extended-api', function () {
 
   it("Mongo.Collection.init() - Collections can be initialized if there are no records.", function () {
     return server.execute(function () {
+      var Vegetables = new Mongo.Collection(null);
+
       // make sure gagarin doesn't auto-initialize users by accident
-      Meteor.users.drop();
+      Vegetables.drop();
 
       // register our initialization function
-      Meteor.users.onInitialization(function(){
-        Accounts.createUser({
-          username: 'daria',
-          password: 'daria',
-          email: 'daria@test.org',
-          profile: {
-            fullName: 'Daria Morgendorffer',
-            role: 'Patient',
-            avatar: 'https://upload.wikimedia.org/wikipedia/en/thumb/1/16/Daria_Logo.svg/1032px-Daria_Logo.svg.png'
-          }
+      Vegetables.onInitialization(function(){
+        Vegetables.insert({
+          name: 'Mustard Greens',
+          carbs: '0.1',
+          amount: '0.5',
+          unit: 'cup'
+        });
+        Vegetables.insert({
+          name: 'Eggplant',
+          carbs: '2',
+          amount: '0.5',
+          unit: 'cup'
         });
       });
 
       // initialize the collection
-      Meteor.users.init();
+      Vegetables.init();
 
       // verification test
-      expect(Meteor.users.find().count()).to.equal(1);
+      expect(Vegetables.find().count()).to.equal(1);
     });
   });
 

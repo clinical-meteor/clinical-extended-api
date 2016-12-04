@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Extended API for Session and Collection.",
-  version: "2.2.4",
+  version: "2.3.0",
   name: "clinical:extended-api",
   git: "https://github.com/clinical-meteor/clinical-extended-api"
 });
@@ -15,10 +15,10 @@ Package.on_use(function (api) {
   // the session.
   api.use('reload@1.1.3', 'client', {weak: true});
 
-  api.use('session@1.1.0', 'client');
-  api.use('underscore@1.0.3', 'client');
-  api.use('reactive-dict@1.1.0', 'client');
-  api.use('ejson@1.0.6', 'client');
+  api.use('session@1.1.7');
+  api.use('underscore@1.0.10');
+  api.use('reactive-dict@1.1.8');
+  api.use('ejson@1.0.13');
 
   //client
   api.addFiles('client/session-extended-api.js', 'client');
@@ -34,23 +34,4 @@ Package.on_use(function (api) {
   api.export('Collection');
   api.export('Style');
 
-});
-
-
-
-Package.on_test(function (api) {
-  api.use('tinytest');
-  //api.use(['session', 'underscore', 'reactive-dict', 'ejson'], 'client');
-
-  api.use('meteor-platform');
-
-  api.use('session', 'client');
-  api.use('deps');
-  api.use('mongo');
-  api.use('mongo-livedata');
-  api.use('clinical:extended-api');
-  api.use('clinical:verification');
-
-  api.addFiles('tests/mocha/session-extended-api-tests.js', 'client');
-  api.addFiles('tests/mocha/collection-extended-api-tests.js');
 });

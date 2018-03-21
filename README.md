@@ -13,6 +13,18 @@ meteor add clinical:extended-api
 
 ### API
 
+#### Random.date(maxDateAgo, dateFormat)  
+Function, Client
+
+````js
+Random.date();
+Random.date("1975-01-01");
+Random.date("1975-01-01", "YYYY/MM/DD");
+Random.date(null, "YYYY/MM/DD");
+new Date(Random.date());
+````
+
+
 #### Session.toggle(key)  
 Function, Client
 Toggle a variable true/false in the session.

@@ -1,3 +1,4 @@
+
 /**
  * @summary Toggles a boolean session variable true/false.
  * @locus Server

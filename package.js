@@ -8,7 +8,7 @@ Package.describe({
 Package.on_use(function (api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use('meteor-base');
+  api.use("meteor-base@1.4.0");
 
   // Session can work with or without reload, but if reload is present
   // it should load first so we can detect it at startup and populate

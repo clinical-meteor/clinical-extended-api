@@ -1,6 +1,6 @@
 Package.describe({
   summary: "Extended API for Session and Collection.",
-  version: "2.5.0",
+  version: "2.5.1",
   name: "clinical:extended-api",
   git: "https://github.com/clinical-meteor/clinical-extended-api"
 });
@@ -8,7 +8,12 @@ Package.describe({
 Package.on_use(function (api) {
   api.versionsFrom('1.1.0.2');
 
-  api.use("meteor-base@1.4.0");
+  api.use('meteor@1.9.3');
+  api.use('webapp@1.10.0');
+  api.use('ddp@1.4.0');
+  api.use('livedata@1.0.18');
+  api.use('es5-shim@4.8.0');
+  api.use('ecmascript@0.15.0');
 
   // Session can work with or without reload, but if reload is present
   // it should load first so we can detect it at startup and populate

@@ -8,6 +8,7 @@ Package.describe({
 Package.on_use(function (api) {
   api.versionsFrom('1.1.0.2');
 
+  // clinical:base
   api.use('meteor@1.9.3');
   api.use('webapp@1.10.0');
   api.use('ddp@1.4.0');
@@ -15,17 +16,20 @@ Package.on_use(function (api) {
   api.use('es5-shim@4.8.0');
   api.use('ecmascript@0.15.0');
 
-  // Session can work with or without reload, but if reload is present
-  // it should load first so we can detect it at startup and populate
-  // the session.
-  api.use('reload@1.1.3', 'client', {weak: true});
-
   api.use('random');
   api.use('mongo@1.6.2');
   api.use('session@1.1.7');
   api.use('underscore@1.0.10');
   api.use('reactive-dict@1.1.8');
   api.use('ejson@1.0.13');
+
+
+  // Session can work with or without reload, but if reload is present
+  // it should load first so we can detect it at startup and populate
+  // the session.
+  api.use('reload@1.1.3', 'client', {weak: true});
+
+
 
   //client
   api.addFiles('client/meteor-extended-api.js', 'client');

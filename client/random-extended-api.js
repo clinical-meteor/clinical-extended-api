@@ -153,3 +153,37 @@ Random.weight = function (lastWeight, variant) {
 };
 
 
+/**
+ * @summary Generate a random biomarker, based off a a reference range [lowerBound, upperBound].
+ * @locus Anywhere
+ * @memberOf Random
+ * @name date
+ * @example
+ * ```js
+ *   Random.fromRange(92, 108);
+ * ```
+ */
+ Random.fromRange = function (lowerBound, upperBound) {
+  if (!lastWeight){
+    lowerBound = 0;
+  }
+  if (!upperBound){
+    upperBound = 100;
+  }
+
+  // 16
+  let range = upperBound - lowerBound;
+
+  // 1/16
+  let sliceSize = 1 / range;
+
+  // ~8
+  let randomSliceValue = Random.decimal() * sliceSize;  
+
+  // 92 + ~8 = ~100
+  let randomValue = lowerBound + randomSliceValue;
+  
+  return parseFloat(randomValue.toFixed(1));
+};
+
+

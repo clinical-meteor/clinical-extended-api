@@ -1,33 +1,31 @@
 Package.describe({
   summary: "Extended API for Session and Collection.",
-  version: "2.5.2",
+  version: "3.0.0",
   name: "clinical:extended-api",
   git: "https://github.com/clinical-meteor/clinical-extended-api"
 });
 
-Package.on_use(function (api) {
-  api.versionsFrom('1.1.0.2');
+Package.onUse(function (api) {
+  api.versionsFrom('3.0');
 
   // clinical:base
-  api.use('meteor@1.9.3');
-  api.use('webapp@1.10.0');
-  api.use('ddp@1.4.0');
-  api.use('livedata@1.0.18');
-  api.use('es5-shim@4.8.0');
-  api.use('ecmascript@0.15.0');
+  api.use('meteor@2.0.1');
+  api.use('webapp@2.0.1');
+  api.use('ddp@1.4.2');
+  api.use('ecmascript@0.16.9');
 
   api.use('random');
-  api.use('mongo@1.6.2');
-  api.use('session@1.1.7');
-  api.use('underscore@1.0.10');
-  api.use('reactive-dict@1.1.8');
-  api.use('ejson@1.0.13');
+  api.use('mongo@2.0.1');
+  api.use('session@1.2.2');
+  api.use('underscore@1.6.4');
+  api.use('reactive-dict@1.3.2');
+  api.use('ejson@1.1.4');
 
 
   // Session can work with or without reload, but if reload is present
   // it should load first so we can detect it at startup and populate
   // the session.
-  api.use('reload@1.1.3', 'client', {weak: true});
+  api.use('reload@1.3.2', 'client', {weak: true});
 
 
 
